@@ -22,6 +22,6 @@ import io.netty.util.concurrent.EventExecutorGroup;
 public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, TextWebSocketFrame textWebSocketFrame) throws Exception {
-        System.out.println(textWebSocketFrame.text());
+        System.out.println("收到 "+textWebSocketFrame.text());
     }
 }
