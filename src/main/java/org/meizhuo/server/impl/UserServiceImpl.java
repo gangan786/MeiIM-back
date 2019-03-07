@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public Users saveUser(Users user) {
         //生成唯一id
         String userId = sid.nextShort();
@@ -68,4 +69,17 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Users updateUserInfo(Users user) {
+        usersMapper.updateByPrimaryKeySelective(user);
+        return queryUserById(user.getId());
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public Users queryUserById(String userId) {
+        return usersMapper.selectByPrimaryKey(userId);
+    }
+
 }
