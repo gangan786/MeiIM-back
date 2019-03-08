@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @ProjectName: meiim
  * @Package: org.meizhuo.Controller
@@ -29,6 +31,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("u")
 public class UserController {
+
+    @Autowired
+    private HttpServletRequest request;
 
     @Autowired
     private UserService userService;
@@ -90,14 +95,20 @@ public class UserController {
      */
     @PostMapping("uploadFaceBase64")
     public IMoocJSONResult uploadFaceBase64(String userId,String faceData) throws Exception {
+
+        String realPath = request.getServletContext().getRealPath("");
+
         // 获取前端传过来的base64字符串, 然后转换为文件对象再上传
-        String userFacePath = "D:\\" + userId + "userface64.png";
+        String userFacePath = realPath + userId + "userface64.png";
         FileUtils.base64ToFile(userFacePath, faceData);
 
         // 上传文件到fastdfs
         MultipartFile faceFile = FileUtils.fileToMultipart(userFacePath);
         String url = fastDFSClient.uploadBase64(faceFile);
         System.out.println(url);
+
+        //上传完成后删除临时文件
+        FileUtils.deleteFileByPath(userFacePath);
 
 //		"dhawuidhwaiuh3u89u98432.png"
 //		"dhawuidhwaiuh3u89u98432_80x80.png"

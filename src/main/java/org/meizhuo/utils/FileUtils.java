@@ -1,12 +1,6 @@
 package org.meizhuo.utils;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -155,4 +149,16 @@ public class FileUtils {
         
         return true;
 	}
+
+    public static boolean deleteFileByPath(String path) throws FileNotFoundException {
+        File file = new File(path);
+        boolean result=false;
+        if (file.exists()) {
+            result=file.delete();
+        }else {
+            throw new FileNotFoundException("文件不存在");
+        }
+        return result;
+    }
+
 }
