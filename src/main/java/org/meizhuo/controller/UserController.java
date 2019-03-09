@@ -46,6 +46,15 @@ public class UserController {
         return "hello";
     }
 
+    /**
+     * 注册或者登陆
+     * 用户名不存在则注册，存在即校验密码合法性
+     * @param username
+     * @param password
+     * @param cid
+     * @return
+     * @throws Exception
+     */
     @PostMapping("/registOrLogin")
     public IMoocJSONResult registOrLogin(String username, String password, String cid) throws Exception {
 
@@ -123,6 +132,25 @@ public class UserController {
         user.setId(userId);
         user.setFaceImage(thumpImgUrl);
         user.setFaceImageBig(url);
+
+        Users result = userService.updateUserInfo(user);
+
+        return IMoocJSONResult.ok(result);
+    }
+
+    /**
+     * 设置 nickname
+     * @param userId
+     * @param nickname
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/setNickname")
+    public IMoocJSONResult setNickname(String userId,String nickname) throws Exception {
+
+        Users user = new Users();
+        user.setId(userId);
+        user.setNickname(nickname);
 
         Users result = userService.updateUserInfo(user);
 
