@@ -3,12 +3,18 @@ package org.meizhuo.server.impl;
 import org.meizhuo.mapper.UsersMapper;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.server.UserService;
+import org.meizhuo.utils.FastDFSClient;
+import org.meizhuo.utils.FileUtils;
+import org.meizhuo.utils.QRCodeUtils;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.entity.Example;
+
+import java.io.IOException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,7 +23,13 @@ public class UserServiceImpl implements UserService {
     private UsersMapper usersMapper;
 
     @Autowired
+    private FastDFSClient fastDFSClient;
+
+    @Autowired
     private Sid sid;
+
+    @Autowired
+    QRCodeUtils qrCodeUtils;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -46,23 +58,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public Users saveUser(Users user) {
+    public Users saveUser(Users user,String path) {
         //生成唯一id
         String userId = sid.nextShort();
 
-//        // 为每个用户生成一个唯一的二维码
-//        String qrCodePath = "C://user" + userId + "qrcode.png";
-//        // muxin_qrcode:[username]
-//        qrCodeUtils.createQRCode(qrCodePath, "muxin_qrcode:" + user.getUsername());
-//        MultipartFile qrCodeFile = FileUtils.fileToMultipart(qrCodePath);
-//
-//        String qrCodeUrl = "";
-//        try {
-//            qrCodeUrl = fastDFSClient.uploadQRCode(qrCodeFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        user.setQrcode(qrCodeUrl);
+        // 为每个用户生成一个唯一的二维码
+        String qrCodePath = path + userId + "qrcode.png";
+        // muxin_qrcode:[username]
+        qrCodeUtils.createQRCode(qrCodePath, "muxin_qrcode:" + user.getUsername());
+        MultipartFile qrCodeFile = FileUtils.fileToMultipart(qrCodePath);
+
+        String qrCodeUrl = "";
+        try {
+            qrCodeUrl = fastDFSClient.uploadQRCode(qrCodeFile);
+            //上传完毕后删掉临时文件
+            FileUtils.deleteFileByPath(qrCodePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        user.setQrcode(qrCodeUrl);
 
         user.setId(userId);
         usersMapper.insert(user);

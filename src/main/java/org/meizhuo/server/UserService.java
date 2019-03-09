@@ -25,7 +25,7 @@ public interface UserService {
 
     Users queryUserForLogin(String username, String md5Str);
 
-    Users saveUser(Users user);
+    Users saveUser(Users user,String path);
 
     Users updateUserInfo(Users user);
 }

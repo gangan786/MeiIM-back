@@ -84,8 +84,7 @@ public class UserController {
             user.setFaceImage("");
             user.setFaceImageBig("");
             user.setPassword(MD5Utils.getMD5Str(user.getPassword()));
-            user.setQcode("");
-            userResult = userService.saveUser(user);
+            userResult = userService.saveUser(user,request.getServletContext().getRealPath(""));
         }
 
         UsersVO userVO = new UsersVO();

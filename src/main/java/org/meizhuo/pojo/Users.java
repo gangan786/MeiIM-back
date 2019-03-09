@@ -18,7 +18,7 @@ public class Users {
 
     private String nickname;
 
-    private String qcode;
+    private String qrcode;
 
     private String cid;
 
@@ -106,18 +106,12 @@ public class Users {
         this.nickname = nickname;
     }
 
-    /**
-     * @return qcode
-     */
-    public String getQcode() {
-        return qcode;
+    public String getQrcode() {
+        return qrcode;
     }
 
-    /**
-     * @param qcode
-     */
-    public void setQcode(String qcode) {
-        this.qcode = qcode;
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
 
     /**
