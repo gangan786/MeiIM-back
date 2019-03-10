@@ -1,6 +1,9 @@
 package org.meizhuo.server.impl;
 
+import org.meizhuo.enums.SearchFriendsStateEnum;
+import org.meizhuo.mapper.MyFriendsMapper;
 import org.meizhuo.mapper.UsersMapper;
+import org.meizhuo.pojo.MyFriends;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.server.UserService;
 import org.meizhuo.utils.FastDFSClient;
@@ -21,6 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UsersMapper usersMapper;
+
+    @Autowired
+    private MyFriendsMapper myFriendsMapper;
 
     @Autowired
     private FastDFSClient fastDFSClient;
@@ -94,6 +100,44 @@ public class UserServiceImpl implements UserService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public Users queryUserById(String userId) {
         return usersMapper.selectByPrimaryKey(userId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Integer preconditionSearchFriends(String myUserId, String friendUsername) {
+
+        Users user = queryUserInfoByUsername(friendUsername);
+
+        // 1. 搜索的用户如果不存在，返回[无此用户]
+        if (user == null) {
+            return SearchFriendsStateEnum.USER_NOT_EXIST.status;
+        }
+
+        // 2. 搜索账号是你自己，返回[不能添加自己]
+        if (user.getId().equals(myUserId)) {
+            return SearchFriendsStateEnum.NOT_YOURSELF.status;
+        }
+
+        // 3. 搜索的朋友已经是你的好友，返回[该用户已经是你的好友]
+        Example mfe = new Example(MyFriends.class);
+        Example.Criteria mfc = mfe.createCriteria();
+        mfc.andEqualTo("myUserId", myUserId);
+        mfc.andEqualTo("myFriendUserId", user.getId());
+        MyFriends myFriendsRel = myFriendsMapper.selectOneByExample(mfe);
+        if (myFriendsRel != null) {
+            return SearchFriendsStateEnum.ALREADY_FRIENDS.status;
+        }
+
+        return SearchFriendsStateEnum.SUCCESS.status;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Users queryUserInfoByUsername(String username) {
+        Example ue = new Example(Users.class);
+        Example.Criteria uc = ue.createCriteria();
+        uc.andEqualTo("username", username);
+        return usersMapper.selectOneByExample(ue);
     }
 
 }

@@ -1,6 +1,7 @@
 package org.meizhuo.controller;
 
 import org.apache.commons.lang3.StringUtils;
+import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.UsersVO;
 import org.meizhuo.server.UserService;
@@ -154,6 +155,38 @@ public class UserController {
         Users result = userService.updateUserInfo(user);
 
         return IMoocJSONResult.ok(result);
+    }
+
+    /**
+     * 搜索好友
+     * @param myUserId
+     * @param friendUsername
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/search")
+    public IMoocJSONResult searchUser(String myUserId, String friendUsername)
+            throws Exception {
+
+        // 0. 判断 myUserId friendUsername 不能为空
+        if (StringUtils.isBlank(myUserId)
+                || StringUtils.isBlank(friendUsername)) {
+            return IMoocJSONResult.errorMsg("");
+        }
+
+        // 前置条件 - 1. 搜索的用户如果不存在，返回[无此用户]
+        // 前置条件 - 2. 搜索账号是你自己，返回[不能添加自己]
+        // 前置条件 - 3. 搜索的朋友已经是你的好友，返回[该用户已经是你的好友]
+        Integer status = userService.preconditionSearchFriends(myUserId, friendUsername);
+        if (SearchFriendsStateEnum.SUCCESS.status.equals(status)) {
+            Users user = userService.queryUserInfoByUsername(friendUsername);
+            UsersVO userVO = new UsersVO();
+            BeanUtils.copyProperties(user, userVO);
+            return IMoocJSONResult.ok(userVO);
+        } else {
+            String errorMsg = SearchFriendsStateEnum.getMsgByKey(status);
+            return IMoocJSONResult.errorMsg(errorMsg);
+        }
     }
 
 }

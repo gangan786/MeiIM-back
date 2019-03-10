@@ -28,4 +28,8 @@ public interface UserService {
     Users saveUser(Users user,String path);
 
     Users updateUserInfo(Users user);
+
+    Integer preconditionSearchFriends(String myUserId, String friendUsername);
+
+    public Users queryUserInfoByUsername(String username);
 }
