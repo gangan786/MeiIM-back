@@ -4,9 +4,11 @@ import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.mapper.FriendRequestMapper;
 import org.meizhuo.mapper.MyFriendsMapper;
 import org.meizhuo.mapper.UsersMapper;
+import org.meizhuo.mapper.UsersMapperCustomer;
 import org.meizhuo.pojo.FriendRequest;
 import org.meizhuo.pojo.MyFriends;
 import org.meizhuo.pojo.Users;
+import org.meizhuo.pojo.vo.FriendRequestVO;
 import org.meizhuo.server.UserService;
 import org.meizhuo.utils.FastDFSClient;
 import org.meizhuo.utils.FileUtils;
@@ -21,6 +23,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private MyFriendsMapper myFriendsMapper;
+
+    @Autowired
+    private UsersMapperCustomer usersMapperCustomer;
 
     @Autowired
     private FastDFSClient fastDFSClient;
@@ -170,6 +176,12 @@ public class UserServiceImpl implements UserService {
             request.setRequestDateTime(new Date());
             friendRequestMapper.insert(request);
         }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public List<FriendRequestVO> queryFriendRequestList(String acceptUserId) {
+        return usersMapperCustomer.queryFriendRequestList(acceptUserId);
     }
 
 }

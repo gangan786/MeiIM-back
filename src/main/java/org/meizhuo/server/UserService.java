@@ -1,6 +1,9 @@
 package org.meizhuo.server;
 
 import org.meizhuo.pojo.Users;
+import org.meizhuo.pojo.vo.FriendRequestVO;
+
+import java.util.List;
 
 /**
  * @ProjectName: meiim
@@ -75,4 +78,12 @@ public interface UserService {
      * @param friendUsername
      */
     void sendFriendRequest(String myUserId, String friendUsername);
+
+    /**
+     * 查询好友添加申请列表
+     * @param acceptUserId
+     * @return
+     */
+    List<FriendRequestVO> queryFriendRequestList(String acceptUserId);
+
 }

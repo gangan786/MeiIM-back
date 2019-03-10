@@ -11,7 +11,7 @@
     <result column="face_image" property="faceImage" jdbcType="VARCHAR" />
     <result column="face_image_big" property="faceImageBig" jdbcType="VARCHAR" />
     <result column="nickname" property="nickname" jdbcType="VARCHAR" />
-    <result column="qcode" property="qcode" jdbcType="VARCHAR" />
+    <result column="qcode" property="qrcode" jdbcType="VARCHAR" />
     <result column="cid" property="cid" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>
