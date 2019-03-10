@@ -18,18 +18,61 @@ import org.meizhuo.pojo.Users;
 public interface UserService {
 
     /**
-     * @Description: 判断用户名是否存在
+     * 根据用户名查询是否存在此用户
+     *
+     * @param username
+     * @return
      */
-    public boolean queryUsernameIsExist(String username);
+    boolean queryUsernameIsExist(String username);
 
-
+    /**
+     * 登录验证
+     *
+     * @param username
+     * @param md5Str
+     * @return
+     */
     Users queryUserForLogin(String username, String md5Str);
 
-    Users saveUser(Users user,String path);
+    /**
+     * 注册用户
+     *
+     * @param user
+     * @param path
+     * @return
+     */
+    Users saveUser(Users user, String path);
 
+    /**
+     * 更新用户信息
+     *
+     * @param user
+     * @return
+     */
     Users updateUserInfo(Users user);
 
+    /**
+     * 验证搜索的用户是否具有合法性
+     *
+     * @param myUserId
+     * @param friendUsername
+     * @return 搜索结果状态码
+     */
     Integer preconditionSearchFriends(String myUserId, String friendUsername);
 
-    public Users queryUserInfoByUsername(String username);
+    /**
+     * 根据用户名搜索用户信息
+     *
+     * @param username
+     * @return
+     */
+    Users queryUserInfoByUsername(String username);
+
+    /**
+     * 添加好友请求记录，保存到数据库
+     *
+     * @param myUserId
+     * @param friendUsername
+     */
+    void sendFriendRequest(String myUserId, String friendUsername);
 }
