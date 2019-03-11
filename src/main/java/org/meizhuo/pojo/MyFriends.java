@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "my_friends")
 public class MyFriends {
     @Id
-    private Integer id;
+    private String id;
 
     @Column(name = "my_user_id")
     private String myUserId;
@@ -16,14 +16,14 @@ public class MyFriends {
     /**
      * @return id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

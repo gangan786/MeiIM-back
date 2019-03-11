@@ -1,6 +1,7 @@
 package org.meizhuo.controller;
 
 import org.apache.commons.lang3.StringUtils;
+import org.meizhuo.enums.OperatorFriendRequestTypeEnum;
 import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.UsersVO;
@@ -50,6 +51,7 @@ public class UserController {
     /**
      * 注册或者登陆
      * 用户名不存在则注册，存在即校验密码合法性
+     *
      * @param username
      * @param password
      * @param cid
@@ -85,7 +87,7 @@ public class UserController {
             user.setFaceImage("");
             user.setFaceImageBig("");
             user.setPassword(MD5Utils.getMD5Str(user.getPassword()));
-            userResult = userService.saveUser(user,request.getServletContext().getRealPath(""));
+            userResult = userService.saveUser(user, request.getServletContext().getRealPath(""));
         }
 
         UsersVO userVO = new UsersVO();
@@ -97,13 +99,14 @@ public class UserController {
 
     /**
      * 上传头像
+     *
      * @param faceData
      * @param userId
      * @return
      * @throws Exception
      */
     @PostMapping("uploadFaceBase64")
-    public IMoocJSONResult uploadFaceBase64(String userId,String faceData) throws Exception {
+    public IMoocJSONResult uploadFaceBase64(String userId, String faceData) throws Exception {
 
         String realPath = request.getServletContext().getRealPath("");
 
@@ -140,13 +143,14 @@ public class UserController {
 
     /**
      * 设置 nickname
+     *
      * @param userId
      * @param nickname
      * @return
      * @throws Exception
      */
     @PostMapping("/setNickname")
-    public IMoocJSONResult setNickname(String userId,String nickname) throws Exception {
+    public IMoocJSONResult setNickname(String userId, String nickname) throws Exception {
 
         Users user = new Users();
         user.setId(userId);
@@ -159,9 +163,10 @@ public class UserController {
 
     /**
      * 搜索好友
+     *
      * @param myUserId
      * @param friendUsername
-     * @return
+     * @return 返回搜索好友的相关信息
      * @throws Exception
      */
     @PostMapping("/search")
@@ -189,6 +194,14 @@ public class UserController {
         }
     }
 
+    /**
+     * 插入一条添加好友请求
+     *
+     * @param myUserId
+     * @param friendUsername
+     * @return
+     * @throws Exception
+     */
     @PostMapping("/addFriendRequest")
     public IMoocJSONResult addFriendRequest(String myUserId, String friendUsername)
             throws Exception {
@@ -213,6 +226,12 @@ public class UserController {
         return IMoocJSONResult.ok();
     }
 
+    /**
+     * 返回申请添加好友列表
+     *
+     * @param userId
+     * @return
+     */
     @PostMapping("/queryFriendRequests")
     public IMoocJSONResult queryFriendRequests(String userId) {
 
@@ -223,6 +242,45 @@ public class UserController {
 
         // 1. 查询用户接受到的朋友申请
         return IMoocJSONResult.ok(userService.queryFriendRequestList(userId));
+    }
+
+    /**
+     * 处理添加好友请求
+     *
+     * @param acceptUserId
+     * @param sendUserId
+     * @param operateType
+     * @return
+     */
+    @PostMapping("/operateFriendRequest")
+    public IMoocJSONResult operateFriendRequest(String acceptUserId, String sendUserId,
+                                                Integer operateType) {
+
+        // 0. acceptUserId sendUserId operateType 判断不能为空
+        if (StringUtils.isBlank(acceptUserId)
+                || StringUtils.isBlank(sendUserId)
+                || operateType == null) {
+            return IMoocJSONResult.errorMsg("参数不完整");
+        }
+
+        // 1. 如果operateType 没有对应的枚举值，则直接抛出空错误信息
+        if (StringUtils.isBlank(OperatorFriendRequestTypeEnum.getMsgByType(operateType))) {
+            return IMoocJSONResult.errorMsg("");
+        }
+
+        if (operateType.equals(OperatorFriendRequestTypeEnum.IGNORE.type)) {
+            // 2. 判断如果忽略好友请求，则直接删除好友请求的数据库表记录
+            userService.deleteFriendRequest(sendUserId, acceptUserId);
+        } else if (operateType.equals(OperatorFriendRequestTypeEnum.PASS.type)) {
+            // 3. 判断如果是通过好友请求，则互相增加好友记录到数据库对应的表
+            //	   然后删除好友请求的数据库表记录
+            userService.passFriendRequest(sendUserId, acceptUserId);
+        }
+
+        // 4. 数据库查询好友列表
+//        List<MyFriendsVO> myFriends = userService.queryMyFriends(acceptUserId);
+
+        return IMoocJSONResult.ok();
     }
 
 }

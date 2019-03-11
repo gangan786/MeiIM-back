@@ -2,6 +2,8 @@ package org.meizhuo.server;
 
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.FriendRequestVO;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -81,9 +83,25 @@ public interface UserService {
 
     /**
      * 查询好友添加申请列表
+     *
      * @param acceptUserId
      * @return
      */
     List<FriendRequestVO> queryFriendRequestList(String acceptUserId);
 
+    /**
+     * 删除好友添加申请记录
+     *
+     * @param sendUserId
+     * @param acceptUserId
+     */
+    void deleteFriendRequest(String sendUserId, String acceptUserId);
+
+    /**
+     * 通过好友申请，往关系表中添加两条互相好友记录
+     *
+     * @param sendUserId
+     * @param acceptUserId
+     */
+    void passFriendRequest(String sendUserId, String acceptUserId);
 }
