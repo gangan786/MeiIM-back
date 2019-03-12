@@ -2,6 +2,7 @@ package org.meizhuo.server;
 
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.FriendRequestVO;
+import org.meizhuo.pojo.vo.MyFriendsVO;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -104,4 +105,12 @@ public interface UserService {
      * @param acceptUserId
      */
     void passFriendRequest(String sendUserId, String acceptUserId);
+
+    /**
+     * 查询用户好友列表
+     *
+     * @param userId
+     * @return
+     */
+    List<MyFriendsVO> queryMyFriends(String userId);
 }

@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="096f99c1-3642-452e-908b-f13d3e435f3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/enums/OperatorFriendRequestTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/vo/MyFriendsVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MyFriendsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MyFriendsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,66 +67,67 @@
     <session id="1518312352">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.32" value="2" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.54" value="1" />
+          <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.60" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="java" value="1955" />
+          <entry key="java" value="2059" />
           <entry key="properties" value="158" />
-          <entry key="txt" value="214" />
-          <entry key="xml" value="289" />
+          <entry key="txt" value="247" />
+          <entry key="xml" value="448" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1955" />
-          <entry key="PLAIN_TEXT" value="221" />
+          <entry key="JAVA" value="2059" />
+          <entry key="PLAIN_TEXT" value="254" />
           <entry key="Properties" value="158" />
-          <entry key="SQL" value="21" />
-          <entry key="XML" value="268" />
+          <entry key="SQL" value="30" />
+          <entry key="XML" value="418" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="10" />
+          <entry key="class" value="11" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="56" />
+          <entry key="java" value="60" />
           <entry key="my_friends" value="2" />
           <entry key="properties" value="2" />
           <entry key="sql" value="1" />
           <entry key="users" value="1" />
-          <entry key="xml" value="9" />
+          <entry key="xml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="10" />
+          <entry key="CLASS" value="11" />
           <entry key="Database Element" value="3" />
           <entry key="Git file" value="1" />
-          <entry key="JAVA" value="56" />
+          <entry key="JAVA" value="60" />
           <entry key="Properties" value="2" />
           <entry key="Scratch" value="1" />
-          <entry key="XML" value="9" />
+          <entry key="XML" value="10" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="259" selection-start-line="259" selection-end-line="259" />
+            <state relative-caret-position="702">
+              <caret line="301" lean-forward="true" selection-start-line="301" selection-end-line="301" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#uploadFaceBase64#0;class#UserController#0" />
@@ -137,23 +137,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="127" selection-start-line="127" selection-end-line="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/enums/OperatorFriendRequestTypeEnum.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
-              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-              <folding>
-                <element signature="e#678#679#0" expanded="true" />
-                <element signature="e#705#706#0" expanded="true" />
-              </folding>
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -161,11 +148,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+            <state relative-caret-position="1900">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/vo/MyFriendsVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -173,42 +169,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-365">
+            <state relative-caret-position="133">
               <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-              <folding>
-                <element signature="e#437#438#0" expanded="true" />
-                <element signature="e#465#466#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MyFriendsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="159" selection-start-line="159" selection-end-line="159" />
+            <state relative-caret-position="360">
+              <caret line="208" column="53" selection-start-line="208" selection-start-column="53" selection-end-line="208" selection-end-column="53" />
               <folding>
                 <element signature="method#queryUsernameIsExist#0;class#UserServiceImpl#0" />
                 <element signature="method#queryUserForLogin#0;class#UserServiceImpl#0" />
@@ -221,10 +201,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MyFriendsMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+            <state relative-caret-position="475">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -253,6 +245,7 @@
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="gangan786" />
+        <option value="gannnnnnnnnnn" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -285,14 +278,15 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/enums/SearchFriendsStateEnum.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UsersMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/vo/FriendRequestVO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/enums/OperatorFriendRequestTypeEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MyFriendsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/vo/MyFriendsVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -345,7 +339,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>AlibabaTransactionMustHaveRollback</id>
+            <id>Ali-Check</id>
           </State>
         </selected-state>
       </profile-state>
@@ -359,6 +353,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -488,16 +483,6 @@
               <item name="MeiIM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="meizhuo" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meiim" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MeiIM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -531,7 +516,6 @@
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,7 +528,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="android.sdk.path" value="D:/SDK" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552274503686" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552308820492" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ConcurrencyTest" />
@@ -563,10 +547,10 @@
       <recent name="org.meizhuo.mapper" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\java\org\meizhuo\pojo\vo" />
       <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\resources\mapper" />
       <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\java\org\meizhuo\utils" />
       <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\java\org\meizhuo" />
-      <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\java\org\meizhuo\pojo\vo" />
       <recent name="D:\Users\mr.gan\SpringBootProject\MeiIM\src\main\java\org\meizhuo\server\impl" />
     </key>
   </component>
@@ -574,10 +558,10 @@
     <treeState>
       <expand>
         <path>
-          <item name="Found 7 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 9 services " type="fcff1e1b:RestServiceStructure$RootNode" />
         </path>
         <path>
-          <item name="Found 7 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 9 services " type="fcff1e1b:RestServiceStructure$RootNode" />
           <item name="MeiIM" type="c588b436:RestServiceStructure$ProjectNode" />
         </path>
       </expand>
@@ -636,7 +620,8 @@
       <workItem from="1552044752335" duration="4867000" />
       <workItem from="1552110834986" duration="598000" />
       <workItem from="1552116776901" duration="7802000" />
-      <workItem from="1552216651343" duration="16108000" />
+      <workItem from="1552216651343" duration="19189000" />
+      <workItem from="1552308949725" duration="3844000" />
     </task>
     <task id="LOCAL-00001" summary="完成Mybatis与mysql的整合">
       <created>1551706820201</created>
@@ -708,11 +693,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552228893414</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完成 处理添加好友的请求">
+      <created>1552274655708</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552274655708</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59293000" />
+    <option name="totallyTimeSpent" value="66218000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,6 +717,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="40" width="1296" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
@@ -743,7 +736,7 @@
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
       <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49918962" weight="0.41590908" />
-      <window_info active="true" anchor="bottom" x="2125" y="292" width="870" height="536" id="Debug" order="9" visible="true" weight="0.37045455" />
+      <window_info anchor="bottom" x="2125" y="292" width="870" height="536" id="Debug" order="9" weight="0.37045455" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32954547" />
@@ -809,7 +802,9 @@
     <MESSAGE value="完成好友搜索并返回相关好友信息" />
     <MESSAGE value="完成好友搜索记录的插入" />
     <MESSAGE value="完成好友申请列表的查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成好友申请列表的查询" />
+    <MESSAGE value="完成 处理添加好友的请求" />
+    <MESSAGE value="完成 查询好友列表的请求" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成 查询好友列表的请求" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -820,32 +815,10 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java</url>
-          <line>159</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java</url>
-          <line>259</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/FriendRequestMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/ChatMsgMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -961,12 +934,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1615">
           <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/FastdfsImporter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1070,11 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1596">
           <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
-          <folding>
-            <element signature="e#1839#1840#0" expanded="true" />
-            <element signature="e#1883#1884#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1100,9 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1117,24 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1145,41 +1092,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.7.RELEASE/spring-aop-5.0.7.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
+        <state relative-caret-position="8227">
+          <caret line="481" selection-start-line="481" selection-end-line="481" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2071">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/enums/OperatorFriendRequestTypeEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-          </folding>
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/server/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+        <state relative-caret-position="1900">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1197,45 +1144,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/MyFriends.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/pojo/vo/MyFriendsVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-365">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UsersMapperCustomer.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="399">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/mapper/UsersMapperCustomer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="259" selection-start-line="259" selection-end-line="259" />
+        <state relative-caret-position="475">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#uploadFaceBase64#0;class#UserController#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/server/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="159" selection-start-line="159" selection-end-line="159" />
+        <state relative-caret-position="360">
+          <caret line="208" column="53" selection-start-line="208" selection-start-column="53" selection-end-line="208" selection-end-column="53" />
           <folding>
             <element signature="method#queryUsernameIsExist#0;class#UserServiceImpl#0" />
             <element signature="method#queryUserForLogin#0;class#UserServiceImpl#0" />
             <element signature="method#saveUser#0;class#UserServiceImpl#0" />
             <element signature="method#preconditionSearchFriends#0;class#UserServiceImpl#0" />
             <element signature="method#queryUserInfoByUsername#0;class#UserServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meizhuo/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="301" lean-forward="true" selection-start-line="301" selection-end-line="301" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#uploadFaceBase64#0;class#UserController#0" />
           </folding>
         </state>
       </provider>

@@ -5,20 +5,28 @@
     <select id="queryFriendRequestList" resultType="org.meizhuo.pojo.vo.FriendRequestVO"
             parameterType="String">
 
-        select
-               sender.id as sendUserId,
-               sender.username as sendUsername,
+        select sender.id         as sendUserId,
+               sender.username   as sendUsername,
                sender.face_image as sendFaceImage,
-               sender.nickname as sendNickname
-        from
-             friend_request fr
-                left join
-                users sender
-                on
-                fr.send_user_id = sender.id
-                where
-                fr.accept_user_id = #{acceptUserId}
+               sender.nickname   as sendNickname
+        from friend_request fr
+                 left join users sender on fr.send_user_id = sender.id
+        where fr.accept_user_id = #{acceptUserId}
 
     </select>
+
+    <select id="queryMyFriends" resultType="org.meizhuo.pojo.vo.MyFriendsVO"
+            parameterType="String">
+
+        select u.id         as friendUserId,
+               u.username   as friendUserName,
+               u.face_image as friendFaceImage,
+               u.nickname   as friendNickName
+        from my_friends as mf
+                 left join users as u on mf.my_friend_user_id = u.id
+        where mf.my_user_id = #{userId};
+
+    </select>
+
 
 </mapper>

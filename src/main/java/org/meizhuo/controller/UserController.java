@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.meizhuo.enums.OperatorFriendRequestTypeEnum;
 import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.pojo.Users;
+import org.meizhuo.pojo.vo.MyFriendsVO;
 import org.meizhuo.pojo.vo.UsersVO;
 import org.meizhuo.server.UserService;
 import org.meizhuo.utils.FastDFSClient;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @ProjectName: meiim
@@ -281,6 +283,19 @@ public class UserController {
 //        List<MyFriendsVO> myFriends = userService.queryMyFriends(acceptUserId);
 
         return IMoocJSONResult.ok();
+    }
+
+    @PostMapping("/myFriends")
+    public IMoocJSONResult myFriends(String userId) {
+        // 0. userId 判断不能为空
+        if (StringUtils.isBlank(userId)) {
+            return IMoocJSONResult.errorMsg("");
+        }
+
+        // 1. 数据库查询好友列表
+        List<MyFriendsVO> myFriends = userService.queryMyFriends(userId);
+
+        return IMoocJSONResult.ok(myFriends);
     }
 
 }

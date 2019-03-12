@@ -9,6 +9,7 @@ import org.meizhuo.pojo.FriendRequest;
 import org.meizhuo.pojo.MyFriends;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.FriendRequestVO;
+import org.meizhuo.pojo.vo.MyFriendsVO;
 import org.meizhuo.server.UserService;
 import org.meizhuo.utils.FastDFSClient;
 import org.meizhuo.utils.FileUtils;
@@ -152,6 +153,8 @@ public class UserServiceImpl implements UserService {
         return usersMapper.selectOneByExample(ue);
     }
 
+
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void sendFriendRequest(String myUserId, String friendUsername) {
@@ -201,6 +204,13 @@ public class UserServiceImpl implements UserService {
         saveFriends(acceptUserId, sendUserId);
         deleteFriendRequest(sendUserId, acceptUserId);
 
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<MyFriendsVO> queryMyFriends(String userId) {
+
+        return usersMapperCustomer.queryMyFriends(userId);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
