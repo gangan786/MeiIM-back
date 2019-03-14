@@ -285,6 +285,11 @@ public class UserController {
         return IMoocJSONResult.ok(myFriends);
     }
 
+    /**
+     * 获取用户好友列表
+     * @param userId
+     * @return
+     */
     @PostMapping("/myFriends")
     public IMoocJSONResult myFriends(String userId) {
         // 0. userId 判断不能为空
@@ -296,6 +301,24 @@ public class UserController {
         List<MyFriendsVO> myFriends = userService.queryMyFriends(userId);
 
         return IMoocJSONResult.ok(myFriends);
+    }
+
+    /**
+     * 获取用户未送达信息列表
+     * @param acceptUserId
+     * @return
+     */
+    @PostMapping("/getUnReadMsgList")
+    public IMoocJSONResult getUnReadMsgList(String acceptUserId) {
+        // 0. userId 判断不能为空
+        if (StringUtils.isBlank(acceptUserId)) {
+            return IMoocJSONResult.errorMsg("");
+        }
+
+        // 查询列表
+        List<org.meizhuo.pojo.ChatMsg> unreadMsgList = userService.getUnReadMsgList(acceptUserId);
+
+        return IMoocJSONResult.ok(unreadMsgList);
     }
 
 }

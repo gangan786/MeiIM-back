@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     private Sid sid;
 
     @Autowired
-    QRCodeUtils qrCodeUtils;
+    private QRCodeUtils qrCodeUtils;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -259,6 +259,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateMsgSigned(List<String> msgIdList) {
         usersMapperCustomer.batchUpdateMsgSigned(msgIdList);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<org.meizhuo.pojo.ChatMsg> getUnReadMsgList(String acceptUserId) {
+        Example chatExample = new Example(org.meizhuo.pojo.ChatMsg.class);
+        Example.Criteria chatCriteria = chatExample.createCriteria();
+        chatCriteria.andEqualTo("signFlag", 0);
+        chatCriteria.andEqualTo("acceptUserId", acceptUserId);
+
+        List<org.meizhuo.pojo.ChatMsg> result = chatMsgMapper.selectByExample(chatExample);
+
+        return result;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
