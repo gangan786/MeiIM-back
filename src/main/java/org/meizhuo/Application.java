@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -12,6 +13,11 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "org.meizhuo.mapper")
 @ComponentScan(basePackages = {"org.meizhuo", "org.n3r.idworker"})
 public class Application {
+
+    @Bean
+    public SpringUtil getSpringUtil(){
+        return new SpringUtil();
+    }
 
 
     public static void main(String[] args) {

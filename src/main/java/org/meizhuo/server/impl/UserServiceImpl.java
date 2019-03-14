@@ -1,10 +1,9 @@
 package org.meizhuo.server.impl;
 
+import org.meizhuo.enums.MsgSignFlagEnum;
 import org.meizhuo.enums.SearchFriendsStateEnum;
-import org.meizhuo.mapper.FriendRequestMapper;
-import org.meizhuo.mapper.MyFriendsMapper;
-import org.meizhuo.mapper.UsersMapper;
-import org.meizhuo.mapper.UsersMapperCustomer;
+import org.meizhuo.mapper.*;
+import org.meizhuo.netty.ChatMsg;
 import org.meizhuo.pojo.FriendRequest;
 import org.meizhuo.pojo.MyFriends;
 import org.meizhuo.pojo.Users;
@@ -37,6 +36,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UsersMapperCustomer usersMapperCustomer;
+
+    @Autowired
+    private ChatMsgMapper chatMsgMapper;
 
     @Autowired
     private FastDFSClient fastDFSClient;
@@ -211,6 +213,30 @@ public class UserServiceImpl implements UserService {
     public List<MyFriendsVO> queryMyFriends(String userId) {
 
         return usersMapperCustomer.queryMyFriends(userId);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public String saveMsg(ChatMsg chatMsg) {
+
+        org.meizhuo.pojo.ChatMsg msgDB = new org.meizhuo.pojo.ChatMsg();
+        String msgId = sid.nextShort();
+        msgDB.setId(msgId);
+        msgDB.setAcceptUserId(chatMsg.getReceiverId());
+        msgDB.setSendUserId(chatMsg.getSenderId());
+        msgDB.setCreateTime(new Date());
+        msgDB.setSignFlag(MsgSignFlagEnum.unsign.type);
+        msgDB.setMsg(chatMsg.getMsg());
+
+        chatMsgMapper.insert(msgDB);
+
+        return msgId;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateMsgSigned(List<String> msgIdList) {
+        usersMapperCustomer.batchUpdateMsgSigned(msgIdList);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

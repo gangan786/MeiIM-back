@@ -1,5 +1,6 @@
 package org.meizhuo.server;
 
+import org.meizhuo.netty.ChatMsg;
 import org.meizhuo.pojo.Users;
 import org.meizhuo.pojo.vo.FriendRequestVO;
 import org.meizhuo.pojo.vo.MyFriendsVO;
@@ -113,4 +114,17 @@ public interface UserService {
      * @return
      */
     List<MyFriendsVO> queryMyFriends(String userId);
+
+    /**
+     * 保存聊天信息
+     * @param chatMsg
+     * @return
+     */
+    String saveMsg(ChatMsg chatMsg);
+
+    /**
+     * 批量更新标记消息的送达状态
+     * @param msgIdList
+     */
+    void updateMsgSigned(List<String> msgIdList);
 }

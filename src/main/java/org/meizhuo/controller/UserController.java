@@ -280,9 +280,9 @@ public class UserController {
         }
 
         // 4. 数据库查询好友列表
-//        List<MyFriendsVO> myFriends = userService.queryMyFriends(acceptUserId);
+        List<MyFriendsVO> myFriends = userService.queryMyFriends(acceptUserId);
 
-        return IMoocJSONResult.ok();
+        return IMoocJSONResult.ok(myFriends);
     }
 
     @PostMapping("/myFriends")

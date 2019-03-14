@@ -25,4 +25,9 @@ public interface UsersMapperCustomer extends MyMapper<Users> {
      */
     List<MyFriendsVO> queryMyFriends(String userId);
 
+    /**
+     * 标记信息已签收
+     * @param msgIdList
+     */
+    void batchUpdateMsgSigned(List<String> msgIdList);
 }
