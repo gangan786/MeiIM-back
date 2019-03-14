@@ -1,9 +1,15 @@
 package org.meizhuo.server.impl;
 
+import io.netty.channel.Channel;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import org.meizhuo.enums.MsgActionEnum;
 import org.meizhuo.enums.MsgSignFlagEnum;
 import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.mapper.*;
+import org.meizhuo.netty.ChatHandler;
 import org.meizhuo.netty.ChatMsg;
+import org.meizhuo.netty.DataContent;
+import org.meizhuo.netty.UserChannelRel;
 import org.meizhuo.pojo.FriendRequest;
 import org.meizhuo.pojo.MyFriends;
 import org.meizhuo.pojo.Users;
@@ -12,6 +18,7 @@ import org.meizhuo.pojo.vo.MyFriendsVO;
 import org.meizhuo.server.UserService;
 import org.meizhuo.utils.FastDFSClient;
 import org.meizhuo.utils.FileUtils;
+import org.meizhuo.utils.JsonUtils;
 import org.meizhuo.utils.QRCodeUtils;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -205,6 +212,21 @@ public class UserServiceImpl implements UserService {
         saveFriends(sendUserId, acceptUserId);
         saveFriends(acceptUserId, sendUserId);
         deleteFriendRequest(sendUserId, acceptUserId);
+
+        //通知请求发送者已通过好友认证
+        Channel channel = UserChannelRel.get(sendUserId);
+        if (channel != null) {
+            Channel finalChannel = ChatHandler.users.find(channel.id());
+            if (finalChannel != null) {
+                //这里获取到的Channel才是真正的有效在线状态的
+                DataContent dataContent = new DataContent();
+                dataContent.setAction(MsgActionEnum.PULL_FRIEND.type);
+                finalChannel.writeAndFlush(new TextWebSocketFrame(
+                        JsonUtils.objectToJson(dataContent)));
+            }
+        }
+
+
 
     }
 
