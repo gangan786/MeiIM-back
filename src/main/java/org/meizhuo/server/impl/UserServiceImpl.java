@@ -6,7 +6,7 @@ import org.meizhuo.enums.MsgActionEnum;
 import org.meizhuo.enums.MsgSignFlagEnum;
 import org.meizhuo.enums.SearchFriendsStateEnum;
 import org.meizhuo.mapper.*;
-import org.meizhuo.netty.ChatHandler;
+import org.meizhuo.netty.chathandle.ChatHandler;
 import org.meizhuo.netty.ChatMsg;
 import org.meizhuo.netty.DataContent;
 import org.meizhuo.netty.UserChannelRel;
