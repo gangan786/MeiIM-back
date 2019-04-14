@@ -118,7 +118,7 @@ public interface UserService {
     /**
      * 保存聊天信息
      * @param chatMsg
-     * @return
+     * @return 返回msgID
      */
     String saveMsg(ChatMsg chatMsg);
 
